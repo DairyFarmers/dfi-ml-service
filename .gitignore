@@ -29,3 +29,8 @@ Thumbs.db
 # Cache files
 .cache/
 *.sqlite3
+
+.venv
+
+static
+templates

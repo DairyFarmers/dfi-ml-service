@@ -21,7 +21,6 @@ def bulk_request():
         data = request.get_json()
 
         expecting_item = data.get('itemId')
-        print(expecting_item)
         expecting_amount = data.get('requestingAmount')
 
         try:

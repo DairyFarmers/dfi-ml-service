@@ -47,7 +47,7 @@ CREATE TABLE "SuppliersContribution"(
 ```
 
 
-## To get the result access following end point with the give request body type
+## To get the result access following end point with the given request body type
 ```
 localhost:5000/bulkRequest
 ```
@@ -55,8 +55,8 @@ localhost:5000/bulkRequest
 ## Request object type
 ```json
 {
-"itemId":1,
-"requestingAmount":400
+"itemId":1, ---int
+"requestingAmount":400 ---bigint
 }
 ```
 

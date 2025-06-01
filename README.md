@@ -9,18 +9,13 @@ A lightweight Flask-based machine learning microservice that predicts:
 - Predict individual contributions based on historical data
 - Estimate company's ability to meet a total request
 - API endpoint for bulk predictions
-- JSON response output
-- Simple and clean Flask backend
 
 ## 📦 Requirements
 
 - Python 3.10+
-- Flask 3.1.0
-- pandas 2.2.3
-- scikit-learn 1.6.1
-- numpy 2.0.2
+- Docker
 
-## Instal docker on running machine
+## Instal docker on running machine before running following commands
 
 Build docker image:
 
@@ -34,3 +29,42 @@ docker run -p 5000:5000 flask-docker-app
 ```
 
 ### Note : Before running the docker image configure .env
+
+
+## Pre-requesties in database
+
+### Note : I'm using postgresql as my database.
+
+Create table which is mandatroy to get the past data
+```bash
+CREATE TABLE "SuppliersContribution"(
+    "SuppliersContributionId" BIGSERIAL,
+    "SupplierMailId" VARCHAR(55),
+    "CreatedDate" DATE,
+    "ItemId" INT,
+    "Contribution" BIGINT
+)
+```
+
+
+## Request object type
+```json
+{
+"itemId":1,
+"requestingAmount":400
+}
+```
+
+
+## Response object type
+
+### Sucess
+```json
+[{"SupplierMailId":"Person5@gmail.com","scaled_prediction":64}, ....]
+```
+### Failture
+```json
+{
+  "resMsg": "Our suppliers won't be able to do this request"
+}
+```

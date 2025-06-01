@@ -1,7 +1,10 @@
 import pandas as pd
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.model_selection import train_test_split
+import logging
 
+# Set up logging
+logging.basicConfig(level=logging.INFO)
 
 def check_company_contribution(df):
     df['CreatedDate'] = pd.to_datetime(df['CreatedDate'])
@@ -32,5 +35,7 @@ def check_company_contribution(df):
 
     predicted_total = model.predict(sample_input)[0]
     historical_max = y.max()
+
+    logging.info(f"Predicted Total: {predicted_total}, Historical Max: {historical_max}")
 
     return predicted_total, historical_max

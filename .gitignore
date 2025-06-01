@@ -16,8 +16,7 @@ env/
 # PyCharm settings
 .idea/
 
-# Environment variable files
-*.env
+
 
 # Logs
 *.log
@@ -31,7 +30,6 @@ Thumbs.db
 *.sqlite3
 
 .venv
-.env
 
 
 static

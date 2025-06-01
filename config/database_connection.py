@@ -6,7 +6,7 @@ from urllib.parse import quote_plus
 load_dotenv()
 
 # Read DB credentials from environment variables
-db_host = os.getenv("DB_HOST")
+db_host = os.getenv("DB_HOST", 'host.docker.internal')
 db_port = os.getenv("DB_PORT")
 db_name = os.getenv("DB_NAME")
 db_user = os.getenv("DB_USER")
@@ -23,7 +23,6 @@ def db_conn():
         return connection
 
     except Exception as e:
-
         return None
 
     finally:

@@ -20,7 +20,17 @@ A lightweight Flask-based machine learning microservice that predicts:
 - scikit-learn 1.6.1
 - numpy 2.0.2
 
-Install dependencies:
+## Instal docker on running machine
+
+Build docker image:
 
 ```bash
-pip install -r requirements.txt
+docker build -t flask-docker-app .
+```
+
+Run docker image:
+```bash
+docker run -p 5000:5000 flask-docker-app
+```
+
+### Note : Before running the docker image configure .env

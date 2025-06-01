@@ -4,13 +4,13 @@ from datetime import datetime
 from sklearn.ensemble import RandomForestRegressor
 
 
-def predict_the_contribution(df, total_expected):
+def predict_the_contribution(df, item_id,total_expected):
 
     df['CreatedDate'] = pd.to_datetime(df['CreatedDate'])
-
+    df = df[df['ItemId'] == item_id] # Filtering the df only for specific item
     # Aggregate per person
     today = datetime.today()
-    agg_df = df.groupby('Name').agg(
+    agg_df = df.groupby('SupplierMailId').agg(
         total_contribution=('Contribution', 'sum'),
         avg_contribution=('Contribution', 'mean'),
         max_contribution=('Contribution', 'max'),
@@ -33,7 +33,7 @@ def predict_the_contribution(df, total_expected):
     agg_df['raw_prediction'] = model.predict(X)
 
     agg_df = scale_predictions(agg_df, total_expected)
-    final_predictions = agg_df[['Name', 'scaled_prediction']].sort_values(by='scaled_prediction', ascending=False)
+    final_predictions = agg_df[['SupplierMailId', 'scaled_prediction']].sort_values(by='scaled_prediction', ascending=False)
     # Final Output
     return final_predictions
 

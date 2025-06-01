@@ -35,7 +35,7 @@ docker run -p 5000:5000 flask-docker-app
 
 ### Note : I'm using postgresql as my database.
 
-Create table which is mandatroy to get the past data
+Create table which is mandatroy to sotre and the past data
 ```bash
 CREATE TABLE "SuppliersContribution"(
     "SuppliersContributionId" BIGSERIAL,
@@ -46,6 +46,11 @@ CREATE TABLE "SuppliersContribution"(
 )
 ```
 
+
+## To get the result access following end point with the give request body type
+```
+localhost:5000/bulkRequest
+```
 
 ## Request object type
 ```json
@@ -66,5 +71,16 @@ CREATE TABLE "SuppliersContribution"(
 ```json
 {
   "resMsg": "Our suppliers won't be able to do this request"
+}
+```
+
+To check the ml service working fine whether you don't have any new data hit the following endpoint using post method with a empty body
+```
+localhost:5000/generateSamples
+```
+You will be reciving following body
+```json
+{
+  "res": "New samples generated successfully"
 }
 ```

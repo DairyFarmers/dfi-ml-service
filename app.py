@@ -1,3 +1,4 @@
+import utils.session
 from flask import Flask, request, jsonify
 from ml_service.contribution_validity import contribution
 

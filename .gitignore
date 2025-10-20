@@ -11,7 +11,6 @@ env/
 .ipynb_checkpoints
 
 # VS Code settings
-.vscode/
 
 # PyCharm settings
 .idea/
@@ -38,3 +37,5 @@ templates
 .idea
 __pycache__
 
+config.bat
+node_modules

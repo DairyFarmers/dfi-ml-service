@@ -1,3 +1,5 @@
+import utils.transport
+import utils.session
 from flask import Flask, request, jsonify
 from ml_service.contribution_validity_service import contribution
 from utils.random_data.create_data import generate_random_sample_data
